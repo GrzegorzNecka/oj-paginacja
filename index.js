@@ -28,10 +28,32 @@ function createItem(text) {
   return itemContainer;
 }
 
-function appendItems(site = 1, length = perPageCounter) {
-  for (let i = 1; i < site * (length + 1); i++) {
+// function appendItems(site = 0, length = perPageCounter) {
+//   for (let i = site; i < site + length; i++) {
+
+//     container.appendChild(createItem(contactList[i]));
+//   }
+// }
+
+// appendItems(0);
+
+function appendItems(site = 0, length = perPageCounter) {
+  //i = 0
+  //i < 2
+
+  //i = 1
+  //i < 3
+
+  //i = 2
+  //i < 4
+
+  let i = site;
+
+  console.log(i % 2);
+
+  for (i; i < site + length; i++) {
     container.appendChild(createItem(contactList[i]));
   }
 }
 
-appendItems();
+appendItems(3);
