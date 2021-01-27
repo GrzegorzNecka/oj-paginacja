@@ -28,10 +28,10 @@ function createItem(text) {
   return itemContainer;
 }
 
-function appendItems(length = perPageCounter) {
+function appendItems(site = 1, length = perPageCounter) {
+  let i = 1;
 
-  
-  for (let i = 0; i < length; i++) {
+  for (i; i < site * (length + 1); i++) {
     container.appendChild(createItem(contactList[i]));
   }
 }
