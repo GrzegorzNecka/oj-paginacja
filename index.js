@@ -29,9 +29,7 @@ function createItem(text) {
 }
 
 function appendItems(site = 1, length = perPageCounter) {
-  let i = 1;
-
-  for (i; i < site * (length + 1); i++) {
+  for (let i = 1; i < site * (length + 1); i++) {
     container.appendChild(createItem(contactList[i]));
   }
 }
