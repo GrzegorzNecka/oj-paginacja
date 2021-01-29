@@ -1,8 +1,9 @@
 // Import stylesheets
 import "./style.css";
 
+// http://jsfiddle.net/Lzp0dw83/
+
 const container = document.querySelector(".w-full.container");
-const btnPrev = document.querySelectorAll("ul.flex");
 
 const contactList = [
   "Peter Petrelli",
@@ -14,26 +15,9 @@ const contactList = [
   "Marian"
 ];
 
-function arrPerpage() {
-  const xyz = [...contactList];
-  const abc = [];
-  const length = contactList.length/2
-  for (let i = 0; i < length; i++) {
-    console.log("i", i);
-    console.log("i+1", i + 1);
-    console.log(xyz);
-    console.log("------------");
-    abc.push([`${xyz[0]} ${xyz[1]}`]);
-    xyz.shift();
-    xyz.shift();
-  }
+// console.log(arrPerpage());
 
-  return abc
-} 
-
-console.log(arrPerpage());
-
-const perPageCounter = 2;
+const recordsPerPage = 2;
 
 function createItem(text) {
   const itemContainer = document.createElement("div");
@@ -48,7 +32,17 @@ function createItem(text) {
   return itemContainer;
 }
 
-// function appendItems(site = 0, length = perPageCounter) {
+function changePage(page) {
+  const btnContainer = document.querySelectorAll("ul.flex");
+  const btnPrev = btnContainer[0].firstElementChild;
+  const btnNext = btnContainer[0].lastElementChild;
+  console.log(btnNext);
+  console.log(btnPrev);
+}
+
+changePage(1);
+
+// function appendItems(site = 0, length = recordsPerPage) {
 //   for (let i = site; i < site + length; i++) {
 
 //     container.appendChild(createItem(contactList[i]));
@@ -57,23 +51,23 @@ function createItem(text) {
 
 // appendItems(0);
 
-function appendItems(site = 0, length = perPageCounter) {
-  //i = 0
-  //i < 2
+// function appendItems(site = 0, length = recordsPerPage) {
+//   //i = 0
+//   //i < 2
 
-  //i = 1
-  //i < 3
+//   //i = 1
+//   //i < 3
 
-  //i = 2
-  //i < 4
+//   //i = 2
+//   //i < 4
 
-  let i = site;
+//   let i = site;
 
-  console.log(i % 2);
+//   console.log(i % 2);
 
-  for (i; i < site + length; i++) {
-    container.appendChild(createItem(contactList[i]));
-  }
-}
+//   for (i; i < site + length; i++) {
+//     container.appendChild(createItem(contactList[i]));
+//   }
+// }
 
-appendItems(3);
+// appendItems(3);
