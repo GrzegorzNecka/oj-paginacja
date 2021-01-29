@@ -1,9 +1,8 @@
 // Import stylesheets
 import "./style.css";
 
-
-
 const container = document.querySelector(".w-full.container");
+const recordsPerPage = 2;
 
 const contactList = [
   "Peter Petrelli",
@@ -14,8 +13,6 @@ const contactList = [
   "Niki Sanders",
   "Marian"
 ];
-
-// console.log(arrPerpage());
 
 function createItem(text) {
   const itemContainer = document.createElement("div");
@@ -30,19 +27,18 @@ function createItem(text) {
   return itemContainer;
 }
 
-const recordsPerPage = 2;
-
 function appendItems(page = 1) {
+  // validate
   if (page < 1) page = 1;
 
+  // i - od którego indexu contactList rozpocząć przeszukiwanie
+  // length - po ilu elemenatch iterować, licząc od index === 0
   let i = (page - 1) * recordsPerPage;
   let length = page * recordsPerPage;
 
-  console.log("i", i);
-  console.log("length", length);
-
   for (i; i < length; i++) {
-    container.appendChild(createItem(contactList[i]));
+    typeof contactList[i] !== "undefined" &&
+      container.appendChild(createItem(contactList[i]));
   }
 }
 
