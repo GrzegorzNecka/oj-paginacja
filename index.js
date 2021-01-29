@@ -10,8 +10,28 @@ const contactList = [
   "Hiro Nakamura",
   "Nathan Petrelli",
   "Sylar",
-  "Niki Sanders"
+  "Niki Sanders",
+  "Marian"
 ];
+
+function arrPerpage() {
+  const xyz = [...contactList];
+  const abc = [];
+  const length = contactList.length/2
+  for (let i = 0; i < length; i++) {
+    console.log("i", i);
+    console.log("i+1", i + 1);
+    console.log(xyz);
+    console.log("------------");
+    abc.push([`${xyz[0]} ${xyz[1]}`]);
+    xyz.shift();
+    xyz.shift();
+  }
+
+  return abc
+} 
+
+console.log(arrPerpage());
 
 const perPageCounter = 2;
 
