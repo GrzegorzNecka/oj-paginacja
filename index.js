@@ -1,9 +1,9 @@
 // Import stylesheets
 import "./style.css";
-import createItem from "./createItem";
+// import createItem from "./createItem";
+import appendItems from "./appendItems";
 
 const container = document.querySelector(".w-full.container");
-const recordsPerPage = 2;
 
 const contactList = [
   "Peter Petrelli",
@@ -15,19 +15,7 @@ const contactList = [
   "Marian"
 ];
 
-function appendItems(page = 1) {
-  // validate
-  if (page < 1) page = 1;
+const page = 1;
+const recordsPerPage = 2;
 
-  // i - od którego indexu contactList rozpocząć przeszukiwanie
-  // length - po ilu elemenatch iterować, licząc od index === 0
-  let i = (page - 1) * recordsPerPage;
-  let length = page * recordsPerPage;
-
-  for (i; i < length; i++) {
-    typeof contactList[i] !== "undefined" &&
-      container.appendChild(createItem(contactList[i]));
-  }
-}
-
-appendItems();
+appendItems(page, recordsPerPage, contactList, container);
