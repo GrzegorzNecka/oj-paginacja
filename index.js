@@ -32,14 +32,13 @@ function createItem(text) {
 
 const recordsPerPage = 2;
 
-function appendItems(page = 1, length = recordsPerPage) {
+function appendItems(page = 1, length = (page * recordsPerPage)) {
   if (page < 1) page = 1;
 
   let i = (page - 1) * recordsPerPage;
 
-  console.log(i % 2);
 
-  for (i; i < page + length; i++) {
+  for (i; i < length; i++) {
     container.appendChild(createItem(contactList[i]));
   }
 }
