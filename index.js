@@ -19,8 +19,6 @@ const page = 1;
 const recordsPerPage = 2;
 let paginationCounter = page;
 
-appendItems(page, recordsPerPage, contactList, container);
-
 function usePagination(currentPage) {
   container.innerText = "";
   appendItems(currentPage, recordsPerPage, contactList, container);
@@ -37,15 +35,14 @@ btns.addEventListener("click", function({ target }) {
     }
   } else if (target.innerText === "Next") {
     const maxLength = this.childElementCount - 2;
-
     if (paginationCounter < maxLength) {
       paginationCounter++;
       usePagination(paginationCounter++);
     }
   }
 
-  console.dir(this.childElementCount);
-  console.log(target.innerText);
-  console.log(parseInt(target.innerText));
-  console.log(isNaN(parseInt(target.innerText)));
+
 });
+
+//initial append items
+appendItems(page, recordsPerPage, contactList, container);
