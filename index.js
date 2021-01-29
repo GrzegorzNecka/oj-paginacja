@@ -12,8 +12,7 @@ const contactList = [
   "Hiro Nakamura",
   "Nathan Petrelli",
   "Sylar",
-  "Niki Sanders",
-  "Marian"
+  "Niki Sanders"
 ];
 
 const page = 1;
@@ -28,7 +27,7 @@ function usePagination(currentPage) {
   paginationCounter = currentPage;
 }
 
-btns.addEventListener("click", ({ target }) => {
+btns.addEventListener("click", function({ target }) {
   if (!isNaN(parseInt(target.innerText))) {
     usePagination(parseInt(target.innerText));
   } else if (target.innerText === "Previous") {
@@ -37,14 +36,15 @@ btns.addEventListener("click", ({ target }) => {
       usePagination(paginationCounter--);
     }
   } else if (target.innerText === "Next") {
-    const maxLength = btns.childElementCount - 2;
-    if (paginationCounter <= maxLength) {
+    const maxLength = this.childElementCount - 2;
+
+    if (paginationCounter < maxLength) {
       paginationCounter++;
       usePagination(paginationCounter++);
     }
   }
 
-  console.log();
+  console.dir(this.childElementCount);
   console.log(target.innerText);
   console.log(parseInt(target.innerText));
   console.log(isNaN(parseInt(target.innerText)));
