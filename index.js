@@ -1,7 +1,7 @@
 // Import stylesheets
 import "./style.css";
 
-// http://jsfiddle.net/Lzp0dw83/
+
 
 const container = document.querySelector(".w-full.container");
 
