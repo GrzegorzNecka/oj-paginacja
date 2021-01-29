@@ -17,31 +17,34 @@ const contactList = [
 
 const page = 1;
 const recordsPerPage = 2;
-let paginationCounter = page;
+let paginationPosition = page;
 
-function usePagination(currentPage) {
+function usePaginationCount(currentPage) {
   container.innerText = "";
   appendItems(currentPage, recordsPerPage, contactList, container);
-  paginationCounter = currentPage;
+  paginationPosition = currentPage;
+}
+
+function usePagination(target, that) {
+  if (target.innerText === "Previous") {
+    if (paginationPosition >= 0) {
+      paginationPosition--;
+      usePaginationCount(paginationPosition--);
+    }
+  } else if (target.innerText === "Next") {
+    console.log(that);
+    const maxLength = that.childElementCount - 2;
+    if (paginationPosition < maxLength) {
+      paginationPosition++;
+      usePaginationCount(paginationPosition++);
+    }
+  }
 }
 
 btns.addEventListener("click", function({ target }) {
   if (!isNaN(parseInt(target.innerText))) {
-    usePagination(parseInt(target.innerText));
-  } else if (target.innerText === "Previous") {
-    if (paginationCounter >= 0) {
-      paginationCounter--;
-      usePagination(paginationCounter--);
-    }
-  } else if (target.innerText === "Next") {
-    const maxLength = this.childElementCount - 2;
-    if (paginationCounter < maxLength) {
-      paginationCounter++;
-      usePagination(paginationCounter++);
-    }
-  }
-
-
+    usePaginationCount(parseInt(target.innerText));
+  } else usePagination(target, this);
 });
 
 //initial append items
