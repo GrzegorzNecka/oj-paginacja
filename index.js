@@ -17,8 +17,6 @@ const contactList = [
 
 // console.log(arrPerpage());
 
-const recordsPerPage = 2;
-
 function createItem(text) {
   const itemContainer = document.createElement("div");
 
@@ -32,42 +30,18 @@ function createItem(text) {
   return itemContainer;
 }
 
-function changePage(page) {
-  const btnContainer = document.querySelectorAll("ul.flex");
-  const btnPrev = btnContainer[0].firstElementChild;
-  const btnNext = btnContainer[0].lastElementChild;
-  console.log(btnNext);
-  console.log(btnPrev);
+const recordsPerPage = 2;
+
+function appendItems(page = 1, length = recordsPerPage) {
+  if (page < 1) page = 1;
+
+  let i = (page - 1) * recordsPerPage;
+
+  console.log(i % 2);
+
+  for (i; i < page + length; i++) {
+    container.appendChild(createItem(contactList[i]));
+  }
 }
 
-changePage(1);
-
-// function appendItems(site = 0, length = recordsPerPage) {
-//   for (let i = site; i < site + length; i++) {
-
-//     container.appendChild(createItem(contactList[i]));
-//   }
-// }
-
-// appendItems(0);
-
-// function appendItems(site = 0, length = recordsPerPage) {
-//   //i = 0
-//   //i < 2
-
-//   //i = 1
-//   //i < 3
-
-//   //i = 2
-//   //i < 4
-
-//   let i = site;
-
-//   console.log(i % 2);
-
-//   for (i; i < site + length; i++) {
-//     container.appendChild(createItem(contactList[i]));
-//   }
-// }
-
-// appendItems(3);
+appendItems(1);
