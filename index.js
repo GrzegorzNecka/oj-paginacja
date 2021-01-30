@@ -1,6 +1,5 @@
 // Import stylesheets
 import "./style.css";
-// import createItem from "./createItem";
 import appendItems from "./appendItems";
 
 const container = document.querySelector(".w-full.container");
