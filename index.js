@@ -31,7 +31,6 @@ function usePagination(target, that) {
       usePaginationCount(paginationPosition--);
     }
   } else if (target.innerText === "Next") {
-    console.log(that);
     const maxLength = that.childElementCount - 2;
     if (paginationPosition < maxLength) {
       paginationPosition++;
