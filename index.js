@@ -24,10 +24,9 @@ function usePaginationCount(currentPage) {
   paginationPosition = currentPage;
 }
 
-function usePagination(
-  { innerText: btnText },
-  { childElementCount: bntsLength }
+function usePagination( { innerText: btnText },  { childElementCount: bntsLength }
 ) {
+  
   switch (btnText) {
     case "Previous":
       if (paginationPosition >= 0) {
@@ -44,6 +43,7 @@ function usePagination(
       }
       break;
   }
+  
 }
 
 btns.addEventListener("click", function({ target }) {
