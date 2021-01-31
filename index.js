@@ -24,8 +24,11 @@ function usePaginationCount(currentPage) {
   paginationPosition = currentPage;
 }
 
-function usePagination({ innerText }, that) {
-  switch (innerText) {
+function usePagination(
+  { innerText: btnText },
+  { childElementCount: bntsLength }
+) {
+  switch (btnText) {
     case "Previous":
       if (paginationPosition >= 0) {
         paginationPosition--;
@@ -34,7 +37,7 @@ function usePagination({ innerText }, that) {
       break;
     case "Next":
     default:
-      const maxLength = that.childElementCount - 2;
+      const maxLength = bntsLength - 2;
       if (paginationPosition < maxLength) {
         paginationPosition++;
         usePaginationCount(paginationPosition++);
