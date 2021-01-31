@@ -24,18 +24,22 @@ function usePaginationCount(currentPage) {
   paginationPosition = currentPage;
 }
 
-function usePagination(target, that) {
-  if (target.innerText === "Previous") {
-    if (paginationPosition >= 0) {
-      paginationPosition--;
-      usePaginationCount(paginationPosition--);
-    }
-  } else if (target.innerText === "Next") {
-    const maxLength = that.childElementCount - 2;
-    if (paginationPosition < maxLength) {
-      paginationPosition++;
-      usePaginationCount(paginationPosition++);
-    }
+function usePagination({ innerText }, that) {
+  switch (innerText) {
+    case "Previous":
+      if (paginationPosition >= 0) {
+        paginationPosition--;
+        usePaginationCount(paginationPosition--);
+      }
+      break;
+    case "Next":
+    default:
+      const maxLength = that.childElementCount - 2;
+      if (paginationPosition < maxLength) {
+        paginationPosition++;
+        usePaginationCount(paginationPosition++);
+      }
+      break;
   }
 }
 
