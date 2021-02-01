@@ -24,9 +24,10 @@ function usePaginationCount(currentPage) {
   paginationPosition = currentPage;
 }
 
-function usePagination( { innerText: btnText },  { childElementCount: bntsLength }
+function usePagination(
+  { innerText: btnText },
+  { childElementCount: bntsLength }
 ) {
-  
   switch (btnText) {
     case "Previous":
       if (paginationPosition >= 0) {
@@ -43,12 +44,13 @@ function usePagination( { innerText: btnText },  { childElementCount: bntsLength
       }
       break;
   }
-  
 }
 
 btns.addEventListener("click", function({ target }) {
-  if (!isNaN(parseInt(target.innerText))) {
-    usePaginationCount(parseInt(target.innerText));
+  const targetCount = parseInt(target.innerText);
+
+  if (!isNaN(targetCount)) {
+    usePaginationCount(targetCount);
   } else usePagination(target, this);
 });
 
